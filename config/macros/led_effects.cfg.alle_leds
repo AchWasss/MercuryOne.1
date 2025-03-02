@@ -1,0 +1,334 @@
+# https://github.com/julianschill/klipper-led_effect
+# Bett   17-40
+# Rahmen  1-16
+
+[led_effect Printing_Rahmen]
+leds:
+    neopixel:Alle (1-16)
+autostart:                          false
+frame_rate:                         24
+layers:
+    static  0  0 top    (0.5,0.5,0.5)
+
+[led_effect Printing_Bett]
+autostart:                             false
+frame_rate:                            24
+leds:
+    neopixel:Alle (17-40) 
+layers:
+    strobe         0.5  2   add        (1,1,1)
+    breathing      4  0     top (0.0, 0.0, 0.8)
+#    static         1  0     top        (0.4,  0.0, 0.0)
+#    blink  .2  1 add (0.1, 0.0, 0.0),(0.0, 0.1, 0.0),(0.0, 0.0, 0.1)
+
+[led_effect Idle]
+autostart:              true
+frame_rate:             24
+#leds:
+#    neopixel:Alle (1)     # Pico_Led
+#layers:
+#    breathing  10 1 top (0.3,0.3,0.3)
+leds:
+    neopixel:Alle (2-16)
+layers:
+#    breathing  10 1 top (0.1,0.1,0.1)
+    gradient  0.3  1 add (0.7, 0.0, 0.0),(0.0, 0.7, 0.0),(0.0, 0.0, 0.7)
+
+[led_effect PrintEnd]
+autostart:                             false
+frame_rate:                            24
+leds:
+    neopixel:Alle (1-40) 
+layers:
+    strobe         0.5  2   add        (1,1,1)
+    breathing      4  0     difference (0.0, 0.0, 0.8)
+    static         1  0     top        (0.4,  0.0, 0.0)
+
+ #   strobe         1  1.5   add        (1.0,  1.0, 1.0)
+ #   breathing      2  0     difference (0.95, 0.0, 0.0)
+ #   static         1  0     top        (1.0,  0.0, 0.0)
+#autostart:                             true
+
+[led_effect END]
+autostart:                             false
+frame_rate:                            24
+leds:
+    neopixel:Alle (1-16) 
+layers:
+ #   strobe         1  1.5   add        (1,1,1)
+    breathing      6  0     difference (0.0, 0.0, 0.8)
+    static         1  0     top        (0.4,  0.0, 0.0)
+
+ #   strobe         1  1.5   add        (1.0,  1.0, 1.0)
+ #   breathing      2  0     difference (0.95, 0.0, 0.0)
+ #   static         1  0     top        (1.0,  0.0, 0.0)
+#autostart:                             true
+
+[led_effect FloodLight_END]
+leds:
+    neopixel:Alle (17-40)
+autostart:                          false
+frame_rate:                         24
+layers:
+    static  0  0   top  (0.5,0.5,0.5)
+    comet  0.3  0 add (0, 0, 1)
+
+[led_effect Cooling]
+leds:
+    neopixel:Alle (17-40) # (1,3,7,8,6,2)
+autostart:                          false
+frame_rate:                         24
+layers:
+    comet  0.3  1 top (0, 0, 1)
+
+
+[led_effect rainbow_END]
+leds:
+    neopixel:Alle (1-16)
+autostart:                          false
+frame_rate:                         24
+layers:
+    gradient  0.3  1 top (0.5, 0.0, 0.0),(0.0, 0.5, 0.0),(0.0, 0.0, 0.5)
+
+
+
+[led_effect critical_error]
+leds:
+    neopixel:Alle 
+run_on_error:                          true
+frame_rate:                            24
+layers:
+    strobe         1  1.5   add        (0.7,  0.7, 0.7)
+    breathing      3  0     difference (0.4, 0.0, 0.0)
+    static         1  0     top        (0.4,  0.0, 0.0)
+autostart:                             false
+ #   strobe         1  1.5   add        (1.0,  1.0, 1.0)
+ #   breathing      2  0     difference (0.95, 0.0, 0.0)
+ #   static         1  0     top        (1.0,  0.0, 0.0)
+#autostart:                             false
+
+
+#[led_effect logo_bed_temp]
+#leds:
+#    neopixel:Alle (2-25)
+#autostart:                          false
+#frame_rate:                         24
+#heater:                             extruder
+#layers:
+#    heater  50 0 add    (1,1,0),(1,0,0)
+#    static  0  0 top    (0,.7,0)
+
+[led_effect heating]
+leds:
+    neopixel:Alle
+autostart:                          false
+frame_rate:                         24
+heater:                             extruder
+layers:
+#    heater  50 0 add    (1,0,0),(1,0,0)
+    static  0  0 add    (0.05,0,0)
+    strobe         1  1.5   add        (1,0,0)
+    heater  220 0 add    (1,1,0),(1,0,0)
+
+[led_effect BedHeating]
+leds:
+    neopixel:Alle
+autostart:                          false
+frame_rate:                         24
+heater:                             extruder
+layers:
+#    heater  50 0 add    (1,0,0),(1,0,0)
+    static  0  0 add    (0.05,0,0)
+    strobe         1  1.5   add        (0,0,1)
+    heater  72 0 add    (1,0,1),(1,0,0)
+
+
+[led_effect progress_bar]
+leds:
+    neopixel:Alle (2-25)
+autostart:                          false
+frame_rate:                         24
+layers:
+    progress  -1  0 add         ( 0,0,1),( 0, 0.1, 0.6)
+    static     0  0 top         ( 0, 0, 0.1)
+
+
+[led_effect rainbow]
+leds:
+    neopixel:Alle (1-40)
+autostart:                          false
+frame_rate:                         24
+layers:
+    gradient  0.3  1 add (0.05, 0.0, 0.0),(0.0, 0.05, 0.0),(0.0, 0.0, 0.05)
+
+
+[led_effect rainbow_high]
+leds:
+    neopixel:Alle (1-40)
+autostart:                          false
+frame_rate:                         24
+layers:
+    gradient  0.3  1 add (0.7, 0.0, 0.0),(0.0, 0.7, 0.0),(0.0, 0.0, 0.7)
+
+
+[led_effect Paadie]
+leds:
+    neopixel:Alle (1-40)
+autostart:                          false
+frame_rate:                         24
+layers:
+    blink  .2  1 add (0.1, 0.0, 0.0),(0.0, 0.1, 0.0),(0.0, 0.0, 0.1)
+
+
+[led_effect off]
+leds:
+    neopixel:Alle 
+autostart:                             false
+layers:
+   static 1 0 add (0, 0, 0)
+
+
+[led_effect twinkle]
+leds:
+    neopixel:Alle (17-40)
+autostart:                          true
+frame_rate:                         24
+layers:
+#   twinkle 10 0.05 add (0.3, 0.0, 0.0),(0.3,0.3,0.0),(0.0, 0.3, 0.0),(0.0,0.3,0.3),(0.1,0.1,0.3),(0.3,0.0,0.3)
+   twinkle 6 0.1 add (0.1, 0.0, 0.0),(0.1,0.1,0.0),(0.0, 0.1, 0.0),(0.0,0.1,0.1),(0.0,0.0,0.1),(0.1,0.0,0.1)
+
+
+[led_effect FloodLight]
+leds:
+    neopixel:Alle (1-40)
+autostart:                          false
+frame_rate:                         24
+layers:
+    static  0  0 top    (0.5,0.5,0.5)
+
+
+[led_effect HighPower]
+leds:
+    neopixel:Alle (1-40)
+autostart:                          false
+frame_rate:                         24
+layers:
+    static  0  0 top    (0.8,0.8,0.8)
+
+# use NEOPIXEL_DISPLAY LED=Led_Name TYPE=template_type MODE=template_mode
+
+# for TYPE use:
+# extruder_temp     :extruder temperature progress
+# bed_temp          :bed temperature progress
+# print_percent     :print progress
+# printer_speed     :printer speed
+
+# for MODE use:
+# progress          :the leds will light up one by one
+# glow              :all leds will fade from one color (or non) to other color
+
+# more info: https://github.com/digitalninja-ro/klipper-neopixel/blob/master/README.md
+
+[gcode_macro NEOPIXEL_DISPLAY]
+gcode:
+    {% set led = params.LED %}
+    {% set type = params.TYPE %}
+    {% set mode = params.MODE %}
+    {% set my_neopixel = printer.configfile.config['neopixel ' ~ led] %}
+
+    {% if mode == 'progress' %}
+        {% for i in range(my_neopixel.chain_count|int) %}
+            SET_LED_TEMPLATE LED={led} INDEX={i+1} TEMPLATE={'led_' ~ type ~ '_' ~ mode} param_led_num={i+1} param_led_total={my_neopixel.chain_count|int}
+        {% endfor %}
+    {% endif %}
+    {% if mode == 'glow' %}
+        SET_LED_TEMPLATE LED={led} TEMPLATE={'led_' ~ type ~ '_' ~ mode}
+    {% endif %}
+
+[display_template led_extruder_temp_glow]
+text:
+    {% if printer.extruder.target > 0.0 %}
+        {%  set temp = printer.extruder.target %}
+    {% else %}
+        {% set temp = printer.configfile.config.extruder.max_temp %}
+    {% endif %}
+    {% set ratio = printer.extruder.temperature / temp|float %}
+    {ratio}, 0.0, {1-ratio}, 0.0
+
+[display_template led_extruder_temp_progress]
+param_led_num:  0
+param_led_total: 1
+text:
+    {% if printer.extruder.target > 0.0 %}
+        {%  set temp = printer.extruder.target %}
+    {% else %}
+        {% set temp = printer.configfile.config.extruder.max_temp %}
+    {% endif %}
+    {% set ratio = printer.extruder.temperature / temp|float %}
+    {% set led_ratio = param_led_num|float / param_led_total %}
+    {% if ratio > led_ratio %}
+        {led_ratio}, 0.0, 0.0, 0.0
+    {% else %}
+        0.0, 0.0, 0.0, 0.0
+    {% endif %}
+
+[display_template led_bed_temp_glow]
+text:
+    {% if printer.heater_bed.target > 0.0 %}
+        {%  set temp = printer.heater_bed.target %}
+    {% else %}
+        {% set temp = printer.configfile.config.heater_bed.max_temp %}
+    {% endif %}
+    {% set ratio = printer.heater_bed.temperature / temp|float %}
+    {ratio}, 0.0, {1-ratio}, 0.0
+
+[display_template led_bed_temp_progress]
+param_led_num:  0
+param_led_total: 1
+text:
+    {% if printer.heater_bed.target > 0.0 %}
+        {%  set temp = printer.heater_bed.target %}
+    {% else %}
+        {% set temp = printer.configfile.config.heater_bed.max_temp %}
+    {% endif %}
+    {% set ratio = printer.heater_bed.temperature / temp|float %}
+    {% set led_ratio = param_led_num|float / param_led_total %}
+    {% if ratio > led_ratio %}
+        {led_ratio}, 0.0, 0.0, 0.0
+    {% else %}
+        0.0, 0.0, 0.0, 0.0
+    {% endif %}
+
+[display_template led_print_percent_glow]
+text:
+    {% set ratio = printer.virtual_sdcard.progress %}
+    0.0, {ratio}, 0.0, 0.0
+
+[display_template led_print_percent_progress]
+param_led_num:  0
+param_led_total: 1
+text:
+    {% set ratio = printer.virtual_sdcard.progress %}
+    {% set led_ratio   = param_led_num|float / param_led_total %}
+    {% if ratio > led_ratio %}
+        0.0, {led_ratio}, 0.0, 0.0
+    {% else %}
+        0.0, 0.0, 0.0, 0.0
+    {% endif %}
+
+[display_template led_printer_speed_glow]
+text:
+    {% set ratio  = printer.motion_report.live_velocity|float /  printer.configfile.config.printer.max_velocity|float %}
+    0.0, {ratio}, 0.0, 0.0
+
+[display_template led_printer_speed_progress]
+param_led_num:  0
+param_led_total: 1
+text:
+    {% set ratio  = printer.motion_report.live_velocity|float /  printer.configfile.config.printer.max_velocity|float %}
+    {% set led_ratio    = param_led_num|float / param_led_total %}
+    {% if ratio > led_ratio %}
+        0.0, {led_ratio}, 0.0, 0.0
+    {% else %}
+        0.0, 0.0, 0.0, 0.0
+    {% endif %}
